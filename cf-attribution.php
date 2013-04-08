@@ -8,29 +8,29 @@ Version: 1.0
 Author URI: http://crowdfavorite.com
 */
 
-function cf_attribution($echo = true, $comment_type = 'html', $add_line_breaks = true) {
+function cf_attribution($echo_message = true, $comment_type = 'html', $add_line_breaks = true) {
 	$message = apply_filters('cf_attribution_message', 'Development by Crowd Favorite - http://crowdfavorite.com/');
-
 	switch ($comment_type) {
 		case 'css':
-			$message = '/** ' . $message . ' **/'. PHP_EOL;
+		case 'javascript':
+		case 'js':
+			$message = '/** ' . $message . ' **/' . PHP_EOL;
 		break;
 
 		case 'html':
 		default:
-			$message = '<!-- ' . $message . ' -->';
+			$message = '<!-- ' . $message . ' -->' . PHP_EOL;
 	}
 
 	if (true == $add_line_breaks) {
 		$message = PHP_EOL . $message . PHP_EOL;
 	}
 
-	if (true == $echo) {
+	if (true == $echo_message) {
 		echo $message;
 	}
-	else {
-		return $message;
-	}
+
+	return $message;
 }
 add_action('wp_head', 'cf_attribution', 0, 0);
 

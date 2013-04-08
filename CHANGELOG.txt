@@ -1,4 +1,11 @@
 # CHANGE LOG
 
+## 1.1
+- Add 'javascript' and 'js' comment types
+- Clearer variable names
+- Add PHP_EOL to HMTL message
+- $message is always returned, whether echo'd or not
+- Additions to README.txt
+
 ## 1.0
 - Initial release
